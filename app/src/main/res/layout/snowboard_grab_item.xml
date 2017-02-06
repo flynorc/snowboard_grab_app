@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <TextView
+        style="@style/TitleText"
+        android:id="@+id/grab_name"
+        tools:text="Grab name here" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/grab_image"
+        android:scaleType="centerInside"
+        android:src="@drawable/indy_goofy"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/grab_rider_orientation"
+        android:layout_marginLeft="@dimen/standard_margin"
+        android:layout_marginRight="@dimen/standard_margin"
+        android:textAlignment="center"
+        tools:text="rider is goofy or regular"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/grab_description"
+        android:layout_margin="@dimen/standard_margin"
+        tools:text="some description of the trick, explaining how it should be done,..."/>
+</LinearLayout>

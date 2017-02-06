@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_quiz"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context="com.flynorc.snowboardgrabsquiz.QuizActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/question_number"
+            tools:text="x/y"
+            android:textAlignment="center"/>
+
+        <TextView
+            style="@style/TitleText"
+            android:text="@string/what_grab_question"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/question_image"
+            tools:src="@drawable/nose_goofy"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rider_orientation"
+            tools:text="@string/regular"
+            android:textAlignment="center"/>
+
+        <Button
+            style="@style/QuizButton"
+            android:id="@+id/quiz_button_0"
+            android:tag="0"
+            tools:text="@string/indy_grab_name"/>
+
+        <Button
+            style="@style/QuizButton"
+            android:id="@+id/quiz_button_1"
+            android:tag="1"
+            tools:text="@string/mute_grab_name" />
+
+        <Button
+            style="@style/QuizButton"
+            android:id="@+id/quiz_button_2"
+            android:tag="2"
+            tools:text="@string/melon_grab_name"/>
+
+        <Button
+            style="@style/QuizButton"
+            android:id="@+id/quiz_button_3"
+            android:tag="3"
+            tools:text="@string/method_grab_name"/>
+    </LinearLayout>
+
+</ScrollView>
+

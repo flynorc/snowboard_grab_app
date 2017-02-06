@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Snowboard grab quiz</string>
+    <string name="app_description">This app provides a simple, descriptive guide to some basic and intermediate snowboard grabs and includes a quiz to check your ability to identify different grabs.</string>
+    <string name="learn_grabs">Learn about grabs</string>
+    <string name="take_quiz">Take the quiz!</string>
+
+    <!--general explanations-->
+    <string name="front_hand_grabs_title">Grabs with front hand</string>
+    <string name="front_hand_grabs_description">On this chart you can see the basic grabs rider can do with his front hand. Since it is showing the position for a regular stance rider, the nose of the board is on the left and the tail is on the right and for a regular stance rider left hand is his front hand.</string>
+    <string name="back_hand_grabs_title">Grabs with back hand</string>
+    <string name="back_hand_grabs_description">On this chart you can see the basic grabs rider can do with his back hand. Since it is showing the position for a regular stance rider, the nose of the board is on the left and the tail is on the right and for a regular stance rider right hand is his back hand.</string>
+    <string name="what_grab_question">Which grab is shown?</string>
+
+    <!--individual grabs-->
+    <string name="nose_grab_name">Nose grab</string>
+    <string name="nose_grab_description">Front hand grabs the "nose" of the board. The nose of the board is located at the tip of the board closer to the riders front foot.</string>
+
+    <string name="tail_grab_name">Tail grab</string>
+    <string name="tail_grab_description">Back hand grabs the "tail" of the board. The tail of the board is located at the tip of the board closer to the riders back foot.</string>
+
+    <string name="indy_grab_name">Indy</string>
+    <string name="indy_grab_description">Back hand grabs the toe edge of the board between the legs (the middle of the board).</string>
+
+    <string name="mute_grab_name">Mute</string>
+    <string name="mute_grab_description">Front hand grabs the toe edge of the board between the legs (the middle of the board).</string>
+
+    <string name="melon_grab_name">Melon</string>
+    <string name="melon_grab_description">Front hand grabs the heel edge between the bindings.</string>
+
+    <string name="method_grab_name">Method</string>
+    <string name="method_grab_description">Method is similar to melon. It is kind of a tweaked extended version of it. Front hand grabs heel edge either between the bindings, or in front of the front binding. The front leg is bent, and the rear leg is extended (turning the board somewhat sideways) while cranking the grab across the body.</string>
+
+    <string name="chicken_salad_grab_name">The chicken salad</string>
+    <string name="chicken_salad_grab_description">Rear hand reaches through the legs, the wrist is turned 180 degrees inward, and grabs the heel edge between the bindings.</string>
+
+    <string name="canadian_bacon_grab_name">Canadian bacon</string>
+    <string name="canadian_bacon_grab_description">Rear hand reaches through the legs from behind, and grabs the toe edge.</string>
+
+    <string name="stalefish_grab_name">Stalefish</string>
+    <string name="stalefish_grab_description">Rear hand grabs the heel edge between the bindings.</string>
+
+    <string name="seatbelt_grab_name">Seatbelt</string>
+    <string name="seatbelt_grab_description">Front hand reaches across the body and grabs the tail.</string>
+
+    <string name="rocket_air_grab_name">Rocket Air</string>
+    <string name="rocket_air_grab_description">Both hands grab the nose of the board.</string>
+
+    <string name="double_tail_grab_name">Double tail grab</string>
+    <string name="double_tail_grab_description">Both hands grab the tail, with the front hand reaching in front of the body like it would during a seatbelt grab.</string>
+
+    <string name="goofy">Rider is goofy (right foot forward)</string>
+    <string name="regular">Rider is regular (left foot forward)</string>
+
+    <!--results page-->
+    <string name="quiz_results_title">Your results</string>
+    <string name="quiz_results_pretext">You scored: </string>
+    <string name="grade_perfect">Congratulations, all your answers were correct, you are a PRO, now go to the mountain and do some grabs! :)</string>
+    <string name="grade_a">Congratulations, almost perfect, you are in GREAT shape.</string>
+    <string name="grade_b">Congratulations, very good, you are in good shape.</string>
+    <string name="grade_c">Congratulations, you did OK, but there is definitely room to improve.</string>
+    <string name="grade_d">Well... you passed.</string>
+    <string name="grade_f">That was for sure not your best, go study a bit and then try again.</string>
+    <string name="back_to_main">Back to start!</string>
+
+</resources>
