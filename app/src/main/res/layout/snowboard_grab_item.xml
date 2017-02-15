@@ -1,36 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/card_view"
     >
-
-    <TextView
-        style="@style/TitleText"
-        android:id="@+id/grab_name"
-        tools:text="Grab name here" />
-
-    <ImageView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/grab_image"
-        android:scaleType="centerInside"
-        android:src="@drawable/indy_goofy"
-        />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/grab_rider_orientation"
-        android:layout_marginLeft="@dimen/standard_margin"
-        android:layout_marginRight="@dimen/standard_margin"
-        android:textAlignment="center"
-        tools:text="rider is goofy or regular"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/grab_description"
-        android:layout_margin="@dimen/standard_margin"
-        tools:text="some description of the trick, explaining how it should be done,..."/>
-</LinearLayout>
+            <ImageView
+                android:id="@+id/grab_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/indy_goofy" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/actionbar_gradient_dark" />
+            <TextView
+                style="@style/TitleText"
+                android:id="@+id/grab_name"
+                tools:text="Grab name here"
+                android:layout_gravity="bottom"
+                />
+        </FrameLayout>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/grab_rider_orientation"
+            android:layout_marginLeft="@dimen/standard_margin"
+            android:layout_marginRight="@dimen/standard_margin"
+            android:textAlignment="center"
+            tools:text="rider is goofy or regular"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/grab_description"
+            android:layout_margin="@dimen/standard_margin"
+            tools:text="some description of the trick, explaining how it should be done,..."/>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

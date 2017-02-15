@@ -15,12 +15,30 @@ import java.util.concurrent.ThreadLocalRandom;
 public class QuizActivity extends AppCompatActivity {
     private ArrayList<SnowboardGrab> mGrabs;
     private int[] mQuestionIndexes;
+    private int[] mPossibleAnswersForCurrentQuestion;
     private int mCurrentQuestionNr;
     private int mNrQuestionsAll;
     private int mNrQuestionsQuiz;
     private int mCorrectAnswer;
     private int mNrCorrectAnswers;
     private int mNrAnswers; //TODO - this could maybe be removed/replaced with mCurrentQuestionNr
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        // Save UI state changes to the savedInstanceState.
+        // This bundle will be passed to onCreate if the process is
+        // killed and restarted.
+        savedInstanceState.putInt("currentQuestionNr", mCurrentQuestionNr);
+        savedInstanceState.putInt("nrAnswers", mNrAnswers);
+        savedInstanceState.putInt("nrCorrectAnswers", mNrCorrectAnswers);
+
+        //savedInstanceState.putBoolean("MyBoolean", true);
+        //savedInstanceState.putDouble("myDouble", 1.9);
+        //savedInstanceState.putInt("MyInt", 1);
+        //savedInstanceState.putString("MyString", "Welcome back to Android");
+        // etc.
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +57,9 @@ public class QuizActivity extends AppCompatActivity {
         mGrabs = new SnowboardGrabs(this).getSnowboardGrabs();
         mNrQuestionsAll = mGrabs.size();
         mNrQuestionsQuiz = 10; //TODO change this - so that user can chose how many questions he wants
-        mCurrentQuestionNr = 0;
         mCorrectAnswer = -1;
+
+        mCurrentQuestionNr = 0;
         mNrAnswers = 0;
         mNrCorrectAnswers = 0;
 
@@ -78,12 +97,12 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         //update the buttons, set the text and the tag
-        int[] options = generatePossibleAnswerIndexes();
-        for (int i=0; i< options.length; i++) {
+        mPossibleAnswersForCurrentQuestion = generatePossibleAnswerIndexes();
+        for (int i=0; i< mPossibleAnswersForCurrentQuestion.length; i++) {
             int resID = getResources().getIdentifier("quiz_button_" + i, "id" , getPackageName());
             Button currentButton = (Button) findViewById(resID);
-            currentButton.setText(mGrabs.get(options[i]).getName());
-            currentButton.setTag(options[i]);
+            currentButton.setText(mGrabs.get(mPossibleAnswersForCurrentQuestion[i]).getName());
+            currentButton.setTag(mPossibleAnswersForCurrentQuestion[i]);
         }
     }
 
