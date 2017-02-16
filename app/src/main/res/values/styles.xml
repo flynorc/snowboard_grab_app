@@ -11,9 +11,9 @@
     <style name="TitleText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">@dimen/standard_margin</item>
+        <item name="android:layout_margin">@dimen/half_margin</item>
         <item name="android:textColor">#f6f6f6</item>
-        <item name="android:textSize">32sp</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:gravity">center</item>
     </style>
 
@@ -39,6 +39,14 @@
         <item name="android:layout_weight">1</item>
         <item name="android:onClick">checkAnswer</item>
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="appHeader">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_alignParentBottom">true</item>
+
     </style>
 
 </resources>

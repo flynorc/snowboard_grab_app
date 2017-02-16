@@ -11,34 +11,62 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/cover"
-            android:adjustViewBounds="true"/>
+            android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cover"
+                android:adjustViewBounds="true"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/DetailsText"
-                android:text="@string/app_description" />
+                style="@style/appHeader"
+                android:text="@string/app_header"
+                />
+        </RelativeLayout>
 
-            <Button
-                style="@style/NormalButton"
-                android:id="@+id/learn_grabs_button"
-                android:text="@string/learn_grabs" />
 
-            <Button
-                style="@style/NormalButton"
-                android:id="@+id/take_quiz_button"
-                android:text="@string/take_quiz"/>
-        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/DetailsText"
+            android:text="@string/app_description" />
+
+        <Button
+            style="@style/NormalButton"
+            android:id="@+id/learn_grabs_button"
+            android:text="@string/learn_grabs" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/take_quiz_instructions"
+            android:layout_marginTop="32dp"
+            android:textAlignment="center"/>
+
+        <SeekBar
+            android:id="@+id/number_of_questions_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/standard_margin"
+            android:layout_marginRight="@dimen/standard_margin"
+            android:theme="@style/Widget.AppCompat.SeekBar.Discrete" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:id="@+id/number_of_questions_textview"/>
+
+        <Button
+            style="@style/NormalButton"
+            android:id="@+id/take_quiz_button"
+            android:text="@string/take_quiz"/>
 
 
 

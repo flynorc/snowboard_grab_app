@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Snowboard grab quiz</string>
-    <string name="app_description">TEST here... This app provides a simple, descriptive guide to some basic and intermediate snowboard grabs and includes a quiz to check your ability to identify different grabs.</string>
+    <string name="app_description">This app provides a simple, descriptive guide to some basic and intermediate snowboard grabs and includes a quiz to check your ability to identify different grabs.</string>
     <string name="learn_grabs">Learn about grabs</string>
     <string name="take_quiz">Take the quiz!</string>
 
@@ -61,5 +61,11 @@
     <string name="grade_d">Well... you passed.</string>
     <string name="grade_f">That was for sure not your best, go study a bit and then try again.</string>
     <string name="back_to_main">Back to start!</string>
+    <string name="take_quiz_instructions">Choose number of questions for the quiz</string>
+
+    <!--toast messages-->
+    <string name="toast_correct">Correct answer!</string>
+    <string name="toast_wrong">Wrong answer!</string>
+    <string name="app_header">Know your grabs?</string>
 
 </resources>

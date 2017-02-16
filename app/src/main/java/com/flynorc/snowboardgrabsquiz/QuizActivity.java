@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class QuizActivity extends AppCompatActivity {
     private ArrayList<SnowboardGrab> mGrabs;
@@ -22,6 +22,7 @@ public class QuizActivity extends AppCompatActivity {
     private int mCorrectAnswer;
     private int mNrCorrectAnswers;
     private int mNrAnswers; //TODO - this could maybe be removed/replaced with mCurrentQuestionNr
+    private SnowboardGrab mCurrentGrab;
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
@@ -32,6 +33,11 @@ public class QuizActivity extends AppCompatActivity {
         savedInstanceState.putInt("currentQuestionNr", mCurrentQuestionNr);
         savedInstanceState.putInt("nrAnswers", mNrAnswers);
         savedInstanceState.putInt("nrCorrectAnswers", mNrCorrectAnswers);
+        savedInstanceState.putInt("correctAnswer",mCorrectAnswer);
+
+        savedInstanceState.putSerializable("questionIndexes", mQuestionIndexes);
+        savedInstanceState.putSerializable("possibleAnswersForCurrentQuestion", mPossibleAnswersForCurrentQuestion);
+
 
         //savedInstanceState.putBoolean("MyBoolean", true);
         //savedInstanceState.putDouble("myDouble", 1.9);
@@ -45,23 +51,53 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+        //get the number of questions
+        mNrQuestionsQuiz =  getIntent().getIntExtra("nrQuestionsInQuiz",5);
+
+        /*
+         * restoring saved state of the quiz in case phone changes rotation, activity is paused,...
+         * check if saved state exists. if so, load it, otherwise start new quiz
+         */
+        if (savedInstanceState == null) {
+            //no saved state
+            initializeNewQuiz();
+            generateVariablesForNextQuestion();
+            displayQuestion();
+        }
+        else {
+            //call initialization function that only loads variables not changed by quiz
+            initialize();
+
+            //existing state, load it and then display question
+            mCurrentQuestionNr = savedInstanceState.getInt("currentQuestionNr");
+            mNrAnswers = savedInstanceState.getInt("nrAnswers");
+            mNrCorrectAnswers = savedInstanceState.getInt("nrCorrectAnswers");
+            mCorrectAnswer = savedInstanceState.getInt("correctAnswer");
+
+
+            mQuestionIndexes = (int[]) savedInstanceState.getSerializable("questionIndexes");
+            mPossibleAnswersForCurrentQuestion = (int[]) savedInstanceState.getSerializable("possibleAnswersForCurrentQuestion");;
+
+            mCurrentGrab = mGrabs.get(mCorrectAnswer);
+
+            //TODO MAKE SURE ALL VARIABLES ARE LOADED CORRECTLY - including mCurrentGrab
+
+            displayQuestion();
+        }
+
         initialize();
 
-        displayQuestion();
     }
 
-    /*
-     * initialize all class variables that will be needed for the quiz
-     */
-    private void initialize() {
-        mGrabs = new SnowboardGrabs(this).getSnowboardGrabs();
-        mNrQuestionsAll = mGrabs.size();
-        mNrQuestionsQuiz = 10; //TODO change this - so that user can chose how many questions he wants
-        mCorrectAnswer = -1;
+    private void initializeNewQuiz() {
+        //also call the general initialize method
+        initialize();
 
+        //initialize all the variables that should only be initialized if we are creating a new quiz (not continuing existing quiz)
         mCurrentQuestionNr = 0;
         mNrAnswers = 0;
         mNrCorrectAnswers = 0;
+        mCorrectAnswer = -1;
 
         //create the array holding indexes for questions (that we shuffle and have random order of questions for each quiz)
         mQuestionIndexes = new int[mNrQuestionsAll];
@@ -72,24 +108,39 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     /*
+     * initialize all class variables that are not changing, and can be always created new
+     * so there is no need to pass them to the saveInstanceState
+     */
+    private void initialize() {
+        mGrabs = new SnowboardGrabs(this).getSnowboardGrabs();
+        mNrQuestionsAll = mGrabs.size();
+
+
+    }
+
+    private void generateVariablesForNextQuestion() {
+        //get a question from the arrayList
+        mCorrectAnswer = mQuestionIndexes[mCurrentQuestionNr];
+        mCurrentGrab = mGrabs.get(mCorrectAnswer);
+        mPossibleAnswersForCurrentQuestion = generatePossibleAnswerIndexes();
+
+    }
+
+    /*
      * take question, generate the correct and false answers and update the layout
      */
     private void displayQuestion() {
-        //get a question from the arrayList
-        mCorrectAnswer = mQuestionIndexes[mCurrentQuestionNr];
-        SnowboardGrab currentGrab = mGrabs.get(mCorrectAnswer);
-
         //update question number
         TextView nrQuestionsView = (TextView) findViewById(R.id.question_number);
         nrQuestionsView.setText( (mCurrentQuestionNr + 1) + " / " + mNrQuestionsQuiz);
 
         //update question image
         ImageView grabImageView = (ImageView) findViewById(R.id.question_image);
-        grabImageView.setImageResource(currentGrab.getImageResourceId());
+        grabImageView.setImageResource(mCurrentGrab.getImageResourceId());
 
         //update rider orientation text
         TextView grabOrientationView = (TextView) findViewById(R.id.rider_orientation);
-        if(currentGrab.riderIsRegular()) {
+        if(mCurrentGrab.riderIsRegular()) {
             grabOrientationView.setText(R.string.regular);
         }
         else {
@@ -97,7 +148,7 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         //update the buttons, set the text and the tag
-        mPossibleAnswersForCurrentQuestion = generatePossibleAnswerIndexes();
+
         for (int i=0; i< mPossibleAnswersForCurrentQuestion.length; i++) {
             int resID = getResources().getIdentifier("quiz_button_" + i, "id" , getPackageName());
             Button currentButton = (Button) findViewById(resID);
@@ -150,6 +201,11 @@ public class QuizActivity extends AppCompatActivity {
         mNrAnswers++;
         if(answer == mCorrectAnswer) {
             mNrCorrectAnswers++;
+
+            Toast.makeText(getApplicationContext(), R.string.toast_correct,Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getApplicationContext(), R.string.toast_wrong,Toast.LENGTH_SHORT).show();
         }
 
         //check if all questions were answered
@@ -158,38 +214,23 @@ public class QuizActivity extends AppCompatActivity {
         }
         else {
             mCurrentQuestionNr++;
+            generateVariablesForNextQuestion();
             displayQuestion();
         }
     }
 
     /*
      * show the results of the quiz
+     * start the ResultActivity, pass the needed parameters
      */
     private void finishQuiz() {
-        setContentView(R.layout.quiz_results);
-
-        //update the percentage
-        TextView resultView = (TextView) findViewById(R.id.quiz_result_value);
         int successPercentage = Math.round((float) mNrCorrectAnswers/mNrAnswers * 100);
-        resultView.setText(successPercentage + " %");
-
-        //update the result message based on the "grade"
         String grade = getGradeIdentifier(successPercentage);
-        TextView resultMessageView = (TextView) findViewById(R.id.quiz_result_message);
-        int resID = getResources().getIdentifier("grade_" + grade, "string", getPackageName());
-        resultMessageView.setText(resID);
 
-        //update the result image based on the "grade"
-        ImageView resultImageView = (ImageView) findViewById(R.id.quiz_result_image);
-        resID = getResources().getIdentifier("grade_" + grade, "drawable", getPackageName());
-        resultImageView.setImageResource(resID);
-    }
 
-    /*
-     * onclick handler to go back to the main activity
-     */
-    public void backToMain(View v) {
-        Intent i = new Intent(QuizActivity.this, MainActivity.class);
+        Intent i = new Intent(QuizActivity.this, ResultsActivity.class);
+        i.putExtra("successPercentage", successPercentage);
+        i.putExtra("grade", grade);
         startActivity(i);
     }
 
@@ -233,6 +274,4 @@ public class QuizActivity extends AppCompatActivity {
 
         return "f";
     }
-
-
 }

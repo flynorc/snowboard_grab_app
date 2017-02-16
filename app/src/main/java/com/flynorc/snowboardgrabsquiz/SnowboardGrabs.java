@@ -43,5 +43,9 @@ public class SnowboardGrabs {
         return mSnowboardGrabs;
     }
 
+    public int getNrDefinedGrabs() {
+        return mSnowboardGrabs.size();
+    }
+
 
 }

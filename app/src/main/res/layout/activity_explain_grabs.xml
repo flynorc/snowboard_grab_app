@@ -3,8 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_explain_grabs"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="@dimen/standard_margin"
-    tools:context="com.flynorc.snowboardgrabsquiz.ExplainGrabsActivity">
+    android:clipToPadding="false"
+    android:scrollbarStyle="outsideInset"
+    android:divider="@null"
+    android:dividerHeight="0dp"
+    tools:context="com.flynorc.snowboardgrabsquiz.ExplainGrabsActivity"
+    android:overScrollFooter="@android:color/transparent"
+    android:footerDividersEnabled="false">
 
 </ListView>
