@@ -4,7 +4,6 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.flynorc.snowboardgrabsquiz.MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +28,6 @@
                 />
         </RelativeLayout>
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/take_quiz_instructions"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/double_margin"
             android:textAlignment="center"/>
 
         <SeekBar
@@ -68,10 +66,6 @@
             android:id="@+id/take_quiz_button"
             android:text="@string/take_quiz"/>
 
-
-
     </LinearLayout>
-
-
 
 </ScrollView>

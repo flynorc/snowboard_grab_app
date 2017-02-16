@@ -46,7 +46,8 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_alignParentBottom">true</item>
-
     </style>
+
+
 
 </resources>

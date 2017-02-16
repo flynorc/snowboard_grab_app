@@ -3,6 +3,7 @@ package com.flynorc.snowboardgrabsquiz;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -202,10 +203,14 @@ public class QuizActivity extends AppCompatActivity {
         if(answer == mCorrectAnswer) {
             mNrCorrectAnswers++;
 
-            Toast.makeText(getApplicationContext(), R.string.toast_correct,Toast.LENGTH_SHORT).show();
+            Toast toast = Toast.makeText(getApplicationContext(), R.string.toast_correct,Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 150);
+            toast.show();
         }
         else {
-            Toast.makeText(getApplicationContext(), R.string.toast_wrong,Toast.LENGTH_SHORT).show();
+            Toast toast = Toast.makeText(getApplicationContext(), R.string.toast_wrong,Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 150);
+            toast.show();
         }
 
         //check if all questions were answered
