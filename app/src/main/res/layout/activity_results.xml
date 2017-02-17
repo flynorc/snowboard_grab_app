@@ -10,15 +10,12 @@
     <LinearLayout android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/activity_vertical_margin"
+
         tools:context="com.flynorc.snowboardgrabsquiz.QuizActivity">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TitleText"
             android:text="@string/quiz_results_title"
-            android:textSize="24sp"
-            android:textAlignment="center"
             />
 
         <ImageView
@@ -27,23 +24,20 @@
             android:id="@+id/quiz_result_image"
             android:adjustViewBounds="true"
             android:src="@drawable/grade_perfect"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/quiz_results_pretext"
-                android:textSize="24sp"/>
+                style="@style/ResultsText"
+                android:text="@string/quiz_results_pretext" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/quiz_result_value"
+                style="@style/ResultsText"
                 tools:text="xx %"
-                android:paddingLeft="8dp"
-                android:textSize="24sp"/>
+                android:paddingLeft="8dp" />
 
         </LinearLayout>
 
@@ -58,6 +52,5 @@
             android:id="@+id/back_to_main_button"
             android:onClick="backToMain"
             android:text="@string/back_to_main"/>
-
     </LinearLayout>
 </ScrollView>

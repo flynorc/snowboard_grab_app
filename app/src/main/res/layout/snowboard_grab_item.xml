@@ -18,7 +18,7 @@
 
         <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="230dp"
+            android:layout_height="@dimen/standard_image_height"
             android:layout_marginTop="@dimen/standard_margin">
 
             <ImageView
