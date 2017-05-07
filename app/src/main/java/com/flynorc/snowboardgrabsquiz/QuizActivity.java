@@ -232,11 +232,11 @@ public class QuizActivity extends AppCompatActivity {
         int successPercentage = Math.round((float) mNrCorrectAnswers/mNrAnswers * 100);
         String grade = getGradeIdentifier(successPercentage);
 
-
         Intent i = new Intent(QuizActivity.this, ResultsActivity.class);
         i.putExtra("successPercentage", successPercentage);
         i.putExtra("grade", grade);
         startActivity(i);
+        finish();
     }
 
     /*

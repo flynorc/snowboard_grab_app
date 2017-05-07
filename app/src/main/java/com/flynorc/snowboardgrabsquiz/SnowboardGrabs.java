@@ -9,10 +9,11 @@ import java.util.ArrayList;
  */
 
 /*
- * TODO THIS should be implemented in a nicer way,
  * i'm guessing the ArrayList should be a static variable of the class that is created only once
  * and used from all (both) activities that need it, but was unable to implement it properly
- *
+ * at the time of creating this project I have not yet came across the singleton pattern.
+ * Since it is only used twice in the app and there are some slight changes between the elements in ArrayList I decided to leave it like this
+ * and in future projects use the singleton pattern where applicable
  */
 public class SnowboardGrabs {
 

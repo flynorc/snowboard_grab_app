@@ -14,18 +14,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/cover"
-                android:adjustViewBounds="true"/>
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/appHeader"
                 android:text="@string/app_header"
                 />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cover"
+                android:adjustViewBounds="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/imageView" />
         </RelativeLayout>
 
         <TextView
@@ -65,6 +69,11 @@
             style="@style/NormalButton"
             android:id="@+id/take_quiz_button"
             android:text="@string/take_quiz"/>
+
+        <Button
+            style="@style/NormalButton"
+            android:id="@+id/take_rubric_quiz_button"
+            android:text="@string/take_rubric_quiz"/>
 
     </LinearLayout>
 

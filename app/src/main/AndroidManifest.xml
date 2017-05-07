@@ -17,7 +17,8 @@
         </activity>
         <activity android:name=".ExplainGrabsActivity" />
         <activity android:name=".QuizActivity" />
-        <activity android:name=".ResultsActivity"></activity>
+        <activity android:name=".ResultsActivity" />
+        <activity android:name=".RubricQuizActivity"></activity>
     </application>
 
 </manifest>

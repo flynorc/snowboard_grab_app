@@ -2,7 +2,8 @@
     <string name="app_name">Snowboard grab quiz</string>
     <string name="app_description">This app provides a simple, descriptive guide to some basic and intermediate snowboard grabs and includes a quiz to check your ability to identify different grabs.</string>
     <string name="learn_grabs">Learn about grabs</string>
-    <string name="take_quiz">Take the quiz!</string>
+    <string name="take_quiz">Take the actual quiz!</string>
+    <string name="take_rubric_quiz">Take the quiz for rubric!</string>
 
     <!--general explanations-->
     <string name="front_hand_grabs_title">Grabs with front hand</string>
@@ -67,5 +68,29 @@
     <string name="toast_correct">Correct answer!</string>
     <string name="toast_wrong">Wrong answer!</string>
     <string name="app_header">Know your grabs?</string>
+    <string name="basic_quiz">Basic quiz</string>
+
+    <!--basic quiz strings-->
+    <string name="name_hint">Please enter your name here</string>
+    <string name="question_1">When a rider is goofy, which is his front leg?</string>
+    <string name="question_1_right">right</string>
+    <string name="question_1_left">left</string>
+    <string name="question_2">Choose ALL grabs that are done with the front hand.</string>
+    <string name="answer_2_1">Nose grab</string>
+    <string name="answer_2_2">Tail grab</string>
+    <string name="answer_2_3">Method</string>
+    <string name="answer_2_4">Mute</string>
+    <string name="question_3">Choose ALL grabs that are done with the back hand.</string>
+    <string name="answer_3_1">Stalefish</string>
+    <string name="answer_3_2">indy</string>
+    <string name="answer_3_3">Method</string>
+    <string name="answer_3_4">Melon</string>
+    <string name="question_4">What is the name of grab when rider grabs the nose of the board with both hands?</string>
+    <string name="question_4_hint">Answer here</string>
+    <string name="basic_quiz_submit">Check answers!</string>
+    <string name="answer_4_1">Rocketair</string>
+    <string name="answer_4_2">Rocket Air</string>
+    <string name="answer_4_3">Rocket Air Grab</string>
+    <string name="basic_result">Dear %1$s, you scored %2$d %%</string>
 
 </resources>
