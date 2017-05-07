@@ -14,12 +14,8 @@
         tools:context="com.flynorc.snowboardgrabsquiz.QuizActivity">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/quiz_results_title"
-            android:textSize="24sp"
-            android:textAlignment="center"
-            />
+            style="@style/TitleText"
+            android:text="@string/quiz_results_title" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -35,16 +31,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/quiz_results_pretext"
-                android:textSize="24sp"/>
+                android:textSize="@dimen/results_text_size"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/quiz_result_value"
                 tools:text="xx %"
-                android:paddingLeft="8dp"
-                android:textSize="24sp"/>
-
+                android:paddingLeft="@dimen/half_margin"
+                android:textSize="@dimen/results_text_size"/>
         </LinearLayout>
 
 
@@ -58,6 +53,5 @@
             android:id="@+id/back_to_main_button"
             android:onClick="backToMain"
             android:text="@string/back_to_main"/>
-
     </LinearLayout>
 </ScrollView>

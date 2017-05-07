@@ -39,12 +39,6 @@ public class QuizActivity extends AppCompatActivity {
         savedInstanceState.putSerializable("questionIndexes", mQuestionIndexes);
         savedInstanceState.putSerializable("possibleAnswersForCurrentQuestion", mPossibleAnswersForCurrentQuestion);
 
-
-        //savedInstanceState.putBoolean("MyBoolean", true);
-        //savedInstanceState.putDouble("myDouble", 1.9);
-        //savedInstanceState.putInt("MyInt", 1);
-        //savedInstanceState.putString("MyString", "Welcome back to Android");
-        // etc.
     }
 
     @Override
@@ -75,19 +69,15 @@ public class QuizActivity extends AppCompatActivity {
             mNrCorrectAnswers = savedInstanceState.getInt("nrCorrectAnswers");
             mCorrectAnswer = savedInstanceState.getInt("correctAnswer");
 
-
             mQuestionIndexes = (int[]) savedInstanceState.getSerializable("questionIndexes");
             mPossibleAnswersForCurrentQuestion = (int[]) savedInstanceState.getSerializable("possibleAnswersForCurrentQuestion");;
 
             mCurrentGrab = mGrabs.get(mCorrectAnswer);
 
-            //TODO MAKE SURE ALL VARIABLES ARE LOADED CORRECTLY - including mCurrentGrab
-
             displayQuestion();
         }
 
         initialize();
-
     }
 
     private void initializeNewQuiz() {
@@ -115,8 +105,6 @@ public class QuizActivity extends AppCompatActivity {
     private void initialize() {
         mGrabs = new SnowboardGrabs(this).getSnowboardGrabs();
         mNrQuestionsAll = mGrabs.size();
-
-
     }
 
     private void generateVariablesForNextQuestion() {
@@ -124,7 +112,6 @@ public class QuizActivity extends AppCompatActivity {
         mCorrectAnswer = mQuestionIndexes[mCurrentQuestionNr];
         mCurrentGrab = mGrabs.get(mCorrectAnswer);
         mPossibleAnswersForCurrentQuestion = generatePossibleAnswerIndexes();
-
     }
 
     /*
